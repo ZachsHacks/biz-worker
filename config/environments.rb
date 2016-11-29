@@ -2,6 +2,7 @@
 # => postgres://{user}:{password}@{host}:{port}/path
 require 'zlib'
 configure :production, :development do
+	ENV['DATABASE_URL'] = 'postgres://prndwaruyimvgf:WgBPm2U7wAjVnOlmoQMQvVmmqw@ec2-54-235-111-109.compute-1.amazonaws.com:5432/d5b2bucverfmu6'
 	db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 	ActiveRecord::Base.establish_connection(
