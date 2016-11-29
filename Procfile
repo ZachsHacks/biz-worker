@@ -1,1 +1,1 @@
-worker: ruby rpc_server.rb
+myworker: rpc_server.rb
