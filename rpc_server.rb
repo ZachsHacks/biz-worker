@@ -26,11 +26,13 @@ class RpcServer
 
 	def process(payload, queue)
 		follow = JSON.parse(payload)
-		puts "Creating follow for: #{follow}"
 		Follow.connection
 		if (Follow.exists?(er_id: follow[0], ing_id: follow[1]))
+			puts "Deleting follow for: #{follow}"
 			Follow.where(er_id: follow[0], ing_id: follow[1]).destroy_all
-		else Follow.create(er_id: follow[0], ing_id: follow[1])
+		else
+			puts "Creating follow for: #{follow}"
+			Follow.create(er_id: follow[0], ing_id: follow[1])
 		end
 	end
 
