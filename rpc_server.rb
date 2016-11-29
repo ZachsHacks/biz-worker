@@ -24,6 +24,7 @@ class RpcServer
 
 	def process(payload)
 		puts payload
+		#Follow.create(er_id: session[:user], ing_id: params[:user_profile])
 	end
 
 end
