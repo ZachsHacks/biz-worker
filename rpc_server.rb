@@ -39,8 +39,9 @@ class RpcServer
 end
 
 def turn_on_rabbit
-	# url = 'amqp://_Vjw35MM:GvzbBUIPufAYEOiKlHCyrQzjcX3wfQ3g@lean-hawkbit-1.bigwig.lshift.net:10029/p6ax6MqZ4W6t'
-	conn = Bunny.new(ENV['RABBITMQ_BIGWIG_RX_URL'], automatically_recover: false)
+	url = 'amqp://_Vjw35MM:GvzbBUIPufAYEOiKlHCyrQzjcX3wfQ3g@lean-hawkbit-1.bigwig.lshift.net:10029/p6ax6MqZ4W6t'
+	# /ENV['RABBITMQ_BIGWIG_RX_URL'],
+	conn = Bunny.new(url, automatically_recover: false)
 	conn.start
 	ch   = conn.create_channel
 	begin
