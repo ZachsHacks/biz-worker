@@ -9,7 +9,7 @@ require "byebug"
 
 Dir["./models/*.rb"].each {|file| require file}
 
-class RpcServer
+class FollowsServer
 
 	def initialize(ch)
 		@ch = ch
@@ -45,7 +45,7 @@ def turn_on_rabbit
 	conn.start
 	ch   = conn.create_channel
 	begin
-		server = RpcServer.new(ch)
+		server = FollowsServer.new(ch)
 		puts "started 'make_follow_queue'"
 		server.start("make_follow_queue")
 	rescue Interrupt => _
